@@ -1,4 +1,4 @@
-For the her2st dataset, the data is publicly available here: human HER2-positive breast tumor ST data.
+For the HER2+ dataset, the data is publicly available here: human HER2-positive breast tumor ST data.
 
 https://github.com/almaan/her2st/
 
