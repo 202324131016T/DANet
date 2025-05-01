@@ -2,7 +2,7 @@
 
 > **DANet: Spatial Gene Spot Expression Prediction from H\&E Histology Images through Dynamic Alignment**
 >
-> Author: Yulong Wu, Jin Xie, Jing Nie, Jiale Cao and Yuansong Zeng
+> Author: Yulong Wu, Jin Xie, Jing Nie, Jiale Cao, Yuansong Zeng and Zheng Wang​​
 
 ## Environment
 
