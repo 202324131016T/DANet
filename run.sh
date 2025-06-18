@@ -67,6 +67,25 @@ ckpt=${ckpt_name}.ckpt
 log=${ckpt_name}.txt
 CUDA_VISIBLE_DEVICES=${GPU_ID} python ./main_ST-Net.py --train train --ckpt ${ckpt} >> ${log}
 cd ../../
-exit 0
+#exit 0
 
-
+# BLEEP her2st
+max_epochs=150
+batch_size=1
+lr=0.001
+aggregation_method=average
+top_K=100
+path_dir=None
+pt_file=None
+dataset=her2st  # "GSE240429", "her2st"
+model_name=BLEEP
+#for image_encoder in ${image_encoder_list[@]}; do
+for image_encoder in resnet50; do
+  path_dir=${model_name}-${dataset}-${image_encoder}-${Recurrence}
+  CUDA_VISIBLE_DEVICES=${GPU_ID} python main.py --path_dir ${path_dir} --init_method ${init_method} --dataset ${dataset} --image_encoder ${image_encoder} --max_epochs ${max_epochs} --batch_size ${batch_size} --lr ${lr}
+  for pt_file in ./result/${path_dir}/*.pt; do
+    for fold in 0 6 12 18 24 27 31 33; do
+      CUDA_VISIBLE_DEVICES=${GPU_ID} python inference.py --path_dir ${path_dir}  --pt_path ${pt_file} --dataset ${dataset} --fold ${fold} --image_encoder ${image_encoder} --aggregation_method ${aggregation_method} --top_K ${top_K}
+    done
+  done
+done
