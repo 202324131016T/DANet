@@ -162,6 +162,6 @@ for fold in [0, 6, 12, 18, 24, 27, 31, 33]:
     gene_PCC = np.array(R)[idx]
     for idx in range(len(gene_names)):
         max_length = max(len(gene_names[idx]), 10)
-        print(f'her2st result for HisToGene: fold={fold}  top-{idx} Gene: {gene_names[idx]:{max_length}}, PCC: {gene_PCC[idx]:.3f}')
-    print(f'her2st result for HisToGene: fold={fold} Pearson Correlation: {np.nanmean(R):.3f}, ARI for pred: {ARI}')
+        print(f'her2st result for ST-Net: fold={fold}  top-{idx} Gene: {gene_names[idx]:{max_length}}, PCC: {gene_PCC[idx]:.3f}')
+    print(f'her2st result for ST-Net: fold={fold} Pearson Correlation: {np.nanmean(R):.3f}, ARI for pred: {ARI}')
 
