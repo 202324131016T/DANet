@@ -963,6 +963,12 @@ def main():
     # plot_heatmap(expression_gt, matched_spot_expression_pred_3, top_k=args.top_K)
     # LOG.logging("result: Figure 4 hotmap saved in %s" % save_path)
 
+    if 'ours' in args.path_dir:
+        args.path_dir = 'ours'
+    elif 'BLEEP' in args.path_dir:
+        args.path_dir = 'BLEEP'
+    else:
+        args.path_dir = 'method_name'
     gene_count(true_data=true, pred_data=pred, save_path=save_path + f'gene_count_{args.path_dir}.png')
     gene_variation(true_data=true, pred_data=pred, save_path=save_path + f'gene_variation_{args.path_dir}.png')
 
